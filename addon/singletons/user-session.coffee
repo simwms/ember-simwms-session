@@ -38,7 +38,7 @@ UserSession = Ember.Object.extend
     .then (account) =>
       @set "account", account
       Cookies.set("accountId", account.get("id"))
-      Cookies.set("rememberToken", account.get("rememberToken"))
+      Cookies.set("rememberToken", @get("rememberToken"))
       @
     .catch ({errors}) =>
       @setError "account", "does not match given token"
