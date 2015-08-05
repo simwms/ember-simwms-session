@@ -49,6 +49,4 @@ UserSession = Ember.Object.extend
   setError: (key, msg) ->
     @errors.addError key, msg
 
-
-
 `export default UserSession`
