@@ -7,10 +7,14 @@ Account = DS.Model.extend
   timezone: DS.attr "string"
   namespace: DS.attr "string"
   host: DS.attr "string"
-  uiuxHost: DS.attr "string"
-  configHost: DS.attr "string"
-  servicePlan: DS.attr "string", defaultValue: "free-trial"
+  uiuxHost: DS.attr "string", defaultValue: ENV.uiuxHost
+  configHost: DS.attr "string", defaultValue: ENV.configHost
   user: DS.belongsTo "user", async: true
   insertedAt: DS.attr "date"
+  status: DS.attr "string", defaultValue: "ok"
+  region: alias "timezone"
+  servicePlan: DS.belongsTo "servicePlan", async: true
+  isProperlySetup: DS.attr "boolean"
+  simwmsAccountKey: DS.attr "string"
 
 `export default Account`
