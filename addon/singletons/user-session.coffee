@@ -20,6 +20,7 @@ UserSession = Ember.Object.extend
   isLoggedIn: ifPresent "account.id"
   namespace: alias "account.namespace"
   host: alias "account.host"
+  simwmsAccountSession: alias "rememberToken"
   hasErrors: alias "errors.hasErrors"
   errors: Errors.create()
   p: Ember.computed -> new Ember.RSVP.Promise (r) => r @
