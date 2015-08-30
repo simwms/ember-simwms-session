@@ -1,6 +1,6 @@
 `import Ember from 'ember'`
 `import DS from 'ember-data'`
-`import Singleton from '../../addon/mixins/singleton-adapter'`
+`import {Singleton} from 'ember-simwms-session'`
 `import ENV from '../config/environment'`
 
 volatile = ->
