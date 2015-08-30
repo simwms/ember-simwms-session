@@ -27,7 +27,6 @@ UserSession = Ember.Object.extend
   checkForErrors: ->
     @errors.clear()
     @setError "token", "cannot be blank" if isBlank(@get "rememberToken")
-    @setError "account", "cannot be blank" if isBlank(@get "accountId")
     @get "hasErrors"
   configure: ({token, account}) ->
     @set "accountId", (account ? Cookies.get("accountId"))
@@ -35,7 +34,7 @@ UserSession = Ember.Object.extend
   setup: (store) ->
     return @get("p") if @checkForErrors()
 
-    store.find "account", @get("accountId")
+    store.find "account", "singleton"
     .then (account) =>
       @set "account", account
       Cookies.set("accountId", account.get("id"))
